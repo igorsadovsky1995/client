@@ -1,27 +1,28 @@
-import React,{useState,useEffect} from 'react'
-import axios from "axios";
-import { useParams,Link} from 'react-router-dom';
-import './userPage.css'
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import { useParams, Link } from 'react-router-dom';
+import './userPage.css';
+
 function UserPage() {
     const [users, setUsers] = useState([]);
     const { eventId } = useParams();
 
     const [currentPage, setCurrentPage] = useState(1);
     const [totalPages, setTotalPages] = useState(1);
-    const limit = 3; 
+    const limit = 3;
 
-
-    const fetchUsers = async (page) => {
-        try {
-            const response = await axios.get(`https://forevent-eacbb67b7d4f.herokuapp.com/api/${eventId}?page=${page}&limit=${limit}`);
-            setUsers(response.data.users || []);
-            setCurrentPage(response.data.currentPage);
-            setTotalPages(response.data.totalPages);
-        } catch (error) {
-            console.error('Error:', error);
-        }
-    };
     useEffect(() => {
+        const fetchUsers = async (page) => {
+            try {
+                const response = await axios.get(`https://forevent-eacbb67b7d4f.herokuapp.com/api/${eventId}?page=${page}&limit=${limit}`);
+                setUsers(response.data.users || []);
+                setCurrentPage(response.data.currentPage);
+                setTotalPages(response.data.totalPages);
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        };
+
         fetchUsers(currentPage);
     }, [currentPage, eventId]);
 
