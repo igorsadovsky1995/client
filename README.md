@@ -42,10 +42,9 @@ You don't have to ever use `eject`. The curated feature set is suitable for smal
 ## Credits
 This project uses the following key libraries:
 
-React
-React Router
-Axios
-Materialize CSS
+## React Router
+## Axios
+## Materialize CSS
 
 ## Learn More
 
