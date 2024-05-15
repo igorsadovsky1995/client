@@ -1,24 +1,20 @@
-import logo from './logo.svg';
+import react from 'react'
 import './App.css';
-
+import {BrowserRouter as Router,Route,Routes} from 'react-router-dom'
+import FormPage from './pages/FormPage/FormPage';
+import EventBoard from './pages/EventBoard'
+import UserPage from './pages/UsersPage/UsersPage'
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+        <div className='container'>
+          <Routes>
+            <Route path='/' element={<EventBoard/>}/>
+            <Route path='/registration/:eventId' element={<FormPage/>}/>
+            <Route path='/users/:eventId' element={<UserPage/>}/>
+          </Routes>
+        </div>
+    </Router>
   );
 }
 

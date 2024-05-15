@@ -1,0 +1,32 @@
+.my-card-container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .my-card-container .card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    
+  }
+  
+  .my-card-container .card-content {
+    flex-grow: 1;
+  }
+  .my-card-container .col{
+    margin-left: 0 !important;
+  }
+  
+  .event-info{
+    font-weight: 500;
+    margin-top: 10px;
+    display: block;
+  }
+  .castom-pagination{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    margin-top: 10px;
+  }
